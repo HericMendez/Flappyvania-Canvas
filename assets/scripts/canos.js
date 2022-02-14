@@ -101,7 +101,7 @@ const colideComCanos = (cano) => {
 
 const colideComCenario = (objetoPlayer, objetoCenario) => {
   
-  const birdY = (objetoPlayer.y + objetoPlayer.altura);
+  const birdY = (objetoPlayer.y + objetoPlayer.altura)-30;
   const cenarioY = objetoCenario.y;
 
   if (birdY >= cenarioY) {
