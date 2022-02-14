@@ -5,10 +5,10 @@ function Bird() {
     spriteY: 0,
     //Tamanho da sprite no Canvas (tela de jogo):
     largura: 33,
-    altura: 90,
+    altura: 100,
     //Posição da imagem no Canvas:
-    x: canvas.width/2 -25,
-    y: 0,
+    x: 15,
+    y: 50,
     //Variáveis de controle de gravidade:
     gravity: 0.25,
     speed: 0,
@@ -38,12 +38,12 @@ function Bird() {
     },
 
     animationFrames: [
-      { spriteX: 4,     spriteY: 0,    spriteWidth: 31,   spriteHeight: 55},       
-      { spriteX: 45,    spriteY: 0,    spriteWidth: 33,   spriteHeight: 53 },    
-      { spriteX: 86,    spriteY: 0,    spriteWidth: 38,   spriteHeight: 33 },     
-      { spriteX: 127,   spriteY: 0,    spriteWidth: 33,   spriteHeight: 31 },   
-      { spriteX: 168,   spriteY: 0,    spriteWidth: 27,   spriteHeight: 45 },   
-      { spriteX: 209,   spriteY: 0,    spriteWidth: 31,   spriteHeight: 55 },
+      { spriteX: 4,     spriteY: 0,    spriteWidth: 31,   spriteHeight: 10},       
+      { spriteX: 45,    spriteY: 0,    spriteWidth: 33,   spriteHeight: 11 },    
+      { spriteX: 86,    spriteY: 0,    spriteWidth: 38,   spriteHeight: 32 },     
+      { spriteX: 127,   spriteY: 0,    spriteWidth: 33,   spriteHeight: 43 },   
+      { spriteX: 168,   spriteY: 0,    spriteWidth: 27,   spriteHeight: 43 },   
+      { spriteX: 209,   spriteY: 0,    spriteWidth: 31,   spriteHeight: 43 },
       { spriteX: 168,   spriteY: 0,    spriteWidth: 27,   spriteHeight: 45 },  
       { spriteX: 127,   spriteY: 0,    spriteWidth: 33,   spriteHeight: 31 },  
       { spriteX: 86,    spriteY: 0,    spriteWidth: 38,   spriteHeight: 33 }, 
@@ -68,7 +68,7 @@ function Bird() {
       
       const { spriteX, spriteY, } = this.animationFrames[this.frameAtual];
 
-     // this.altura = this.animationFrames[this.frameAtual].spriteHeight;
+     //this.altura = this.animationFrames[this.frameAtual].spriteHeight;
      //this.largura = this.animationFrames[this.frameAtual].spriteWidth;
       
       
@@ -91,8 +91,8 @@ function Bird() {
         this.y,
         //dX, dY: Coordenadas X,Y da  posição da sprite no Canvas
 
-        this.largura*2,
-        this.altura*2,
+        this.largura,
+        this.altura,
         //dWidth, dHeight: Proporção X,Y da sprite no Canvas. Utiliza os mesmos valores de "sWidth, sHeight" em uma escala 1:1
       );
     },

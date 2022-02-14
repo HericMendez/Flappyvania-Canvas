@@ -20,8 +20,8 @@ function Canos() {
       }
 
       this.pares.forEach((par) => {
-        par.x = par.x - 2;
-        if (par.x <=-80) canos.pares.shift();
+        par.x = par.x - 2
+        if (par.x<-60) canos.pares.shift();
         if (colideComCanos(par)) {
           deathSound.play();
           highscore.tries++;
@@ -38,7 +38,7 @@ function Canos() {
     desenha() {
       canos.pares.forEach((par) => {
         const randomY = par.y;
-        const canoGap = 120;
+        const canoGap = 100;
 
         const canoHighX = par.x;
         const canoHighY = randomY;
@@ -87,14 +87,14 @@ function Canos() {
 
 
 const colideComCanos = (cano) => {
-  const birdTop = bird.y;
-  const birdBottom = (bird.y + bird.altura);
+  const birdTop = bird.y+43;
+  const birdBottom = (bird.y + bird.altura)-30;
 
-  if (bird.x >= cano.x) {
+  if ((bird.x+bird.largura) >= (cano.x)) {
     // if(navinhaTop<=cano.canoHigh.y || navinhaBottom >=cano.canoLow.y) return true;
-    if (birdTop <= cano.canoHigh.y) {console.log(birdBottom, birdTop); return true};
-    if (birdBottom >= cano.canoLow.y) {console.log(birdBottom, birdTop); return true};
-    console.log(bird.altura, birdTop)
+   if (birdTop <= cano.canoHigh.y) {console.log(birdBottom, birdTop); return true};
+  if (birdBottom >= cano.canoLow.y) {console.log(birdBottom, birdTop); return true};
+
   }
   return false;
 };
