@@ -32,7 +32,7 @@ const newTelaGetReady = () => {
     largura: 300,
     altura: 170,
     x: canvas.width / 2 - 150,
-    y: canvas.height/2-120,
+    y: canvas.height/2-160,
 
     desenha() {
       context.drawImage(

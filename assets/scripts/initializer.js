@@ -14,7 +14,7 @@ const clockTower = new Image();
 clockTower.src = "./assets/sprites/clock_tower.png";
 
 const telas = new Image();
-telas.src = "./assets/sprites/telas.png";
+telas.src = "./assets/sprites/telas_2.png";
 
 const alucardBat = new Image();
 alucardBat.src = "./assets/sprites/alucard.png";
@@ -29,6 +29,6 @@ const deathSound = new Audio();
 deathSound.src = "./assets/sounds/snd_bat_dies.wav";
 
 const bgMusic = new Audio();
-bgMusic.src = "./assets/sounds/tragic_prince.mp3";
+bgMusic.src = "./assets/sounds/nes_music.mp3";
 
 
