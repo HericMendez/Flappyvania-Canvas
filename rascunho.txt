@@ -1,0 +1,44 @@
+moguerço:   
+   
+    //Posição da sprite no arquivo sprites.png:
+    spriteX: 5,
+    spriteY: 69,
+    //Tamanho da sprite no Canvas (tela de jogo):
+    largura: 31,
+    altura: 55,
+    //Posição da imagem no Canvas:
+    x: 10,
+    y: 50,
+
+
+       animationFrames: [
+      { spriteX: 5, spriteY: 69 },          //  31 / 55
+      { spriteX: 37, spriteY: 70 },         //  33 / 53
+      { spriteX: 71, spriteY: 91 },         //  38 / 33
+      { spriteX: 110, spriteY: 93 },        //  33 / 31
+      { spriteX: 144, spriteY: 79 },        //  27 / 45
+      { spriteX: 172, spriteY: 78 },        //  28 / 46
+
+     
+    ],
+
+
+      { spriteX: 5,     spriteY: 69 },          //  31 / 55
+      { spriteX: 41,    spriteY: 1 },           //  33 / 53
+      { spriteX: 82,    spriteY: 14 },          //  38 / 33
+      { spriteX: 123,   spriteY: 16 },          //  33 / 31
+      { spriteX: 164,   spriteY: 2 },           //  27 / 45
+      { spriteX: 205,   spriteY: 1 },           //  26 / 46
+
+      bat (fixed):
+
+      
+      { spriteX: 0,     spriteY: 0 },          //  31 / 55
+      { spriteX: 41,    spriteY: 1 },           //  33 / 53
+      { spriteX: 82,    spriteY: 22 },          //  38 / 33
+      { spriteX: 123,   spriteY: 33 },          //  33 / 31
+      { spriteX: 164,   spriteY: 33 },           //  27 / 45
+      { spriteX: 205,   spriteY: 33 },           //  26 / 46
+
+top: 35
+bottom: 36
