@@ -29,8 +29,7 @@ const Score = () => {
         canvas.width / 2,
         canvas.height - (baseHeight + 160)
       ),
-
-      context.font = '12px "Press Start 2P", cursive';
+        (context.font = '12px "Press Start 2P", cursive');
       context.fillText(
         `Tap or press Spacebar`,
         canvas.width / 2,
@@ -39,9 +38,11 @@ const Score = () => {
     },
 
     update() {
-      if (frames % 60 === 0) {
-        this.pontos++;
-      }
+      setTimeout(() => {
+        if (frames % 100 === 0) {
+          this.pontos++;
+        }
+      }, 3000);
 
       if (this.pontos > highscore.best) {
         highscore.best = highscore.last;

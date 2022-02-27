@@ -38,7 +38,7 @@ function Canos() {
     desenha() {
       canos.pares.forEach((par) => {
         const randomY = par.y;
-        const canoGap = 100;
+        const canoGap = 110;
 
         const canoHighX = par.x;
         const canoHighY = randomY;

@@ -10,10 +10,10 @@ function Bird() {
     x: 15,
     y: 50,
     //Variáveis de controle de gravidade:
-    gravity: 0.25,
+    gravity: 0.15,
     speed: 0,
 
-    jumpHeight: 5,
+    jumpHeight: 3.7,
 
     update() {
       if (colideComCenario(bird, Cenario().chao)) {
