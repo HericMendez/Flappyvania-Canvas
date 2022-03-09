@@ -1,4 +1,5 @@
 const browserDB = getLocalStorage();
+console.log(browserDB)
 
 const highscore = {
   last: browserDB.last,
@@ -31,9 +32,14 @@ const Score = () => {
       ),
         (context.font = '12px "Press Start 2P", cursive');
       context.fillText(
-        `Tap or press Spacebar`,
+        `Tap or press W to start`,
         canvas.width / 2,
         canvas.height - 160
+      );
+      context.fillText(
+        `[M] Music On/Off`,
+        canvas.width / 2,
+        canvas.height - 130
       );
     },
 
@@ -44,7 +50,7 @@ const Score = () => {
         }
       }, 3000);
 
-      if (this.pontos > highscore.best) {
+      if (highscore.last >= highscore.best) {
         highscore.best = highscore.last;
       }
 

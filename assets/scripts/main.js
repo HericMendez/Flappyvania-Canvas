@@ -108,9 +108,14 @@ window.addEventListener("click", () => {
 });
 
 window.onkeypress = (event) => {
-  if (event.code == 'Space') {
+  if (event.code == 'KeyW') {
     telaAtiva.click();
+  } if (event.code == 'KeyM') {
+    if(bgMusic.paused) {bgMusic.play()}
+    else{bgMusic.pause()}
   } 
 };
+
+
 trocaTela(Telas.inicio);
 loop();
