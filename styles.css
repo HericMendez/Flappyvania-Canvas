@@ -1,25 +1,46 @@
-body{
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: url("./bg.jpg");
-    background-repeat: no-repeat;
-    background-repeat: no-repeat;
-    background-size: cover;
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+ 
+  background: linear-gradient(rgba(31, 21, 21, 0.5), rgba(0, 0, 0, 0.5)),url("./assets/sprites/CastlevaniaMapStage02a.png");
+  background-repeat: no-repeat;
+
+  background-size: cover;
+
 }
 
-canvas{
-    border: 1px solid black;
-    display: block;
-    margin: 0 auto;
-    width: 800px;
-    height: 600px;
-
-    
+canvas {
+  border: 3px dashed goldenrod;
+  display: block;
+  top: 50px;
+  width: 70vw;
+  height: 80vh;
+  margin: 0 auto;
 }
 
 @media only screen and (max-width: 600px) {
+  body{
+    padding: 0;
+  }
+
+  canvas {
+    position: fixed;
+    bottom: 0;
+    top: 40px;
+    z-index: -1;
+    margin-top: 60px;
+    left: 0;
+    margin-left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+
+  }
+}
+
+@media only screen and (max-width: 400px) {
   /* For mobile phones: */
   canvas {
     margin: 10px;
@@ -28,15 +49,4 @@ canvas{
     display: block;
     position: absolute;
   }
-  }
-
-@media only screen and (max-width: 400px) {
-/* For mobile phones: */
-canvas {
-  margin: 10px;
-  height: 100vh;
-  width: 100vw;
-  display: block;
-  position: absolute;
-}
 }

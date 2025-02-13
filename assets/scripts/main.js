@@ -1,21 +1,22 @@
 let frames = 0;
+let animFrame = null; // Armazena o ID da requestAnimationFrame
 
 const Telas = {
   inicio: {
     inicializa() {
-      bird = new Bird();
+      bat = new Bat();
       cenario = new Cenario();
-      canos = new Canos();
+      pilares = new Pilares();
       telaStart = newTelaGetReady();
       score = Score();
     },
 
     desenha() {
       cenario.paisagem.desenha();
-      canos.desenha();
+      pilares.desenha();
       cenario.torres.desenha();
       cenario.chao.desenha();
-      bird.desenha();
+      bat.desenha();
 
       telaStart.desenha();
       score.desenhaTopScore();
@@ -30,7 +31,6 @@ const Telas = {
       cenario.torres.update();
       cenario.chao.update();
       cenario.paisagem.update();
-
       score.update();
     },
   },
@@ -41,33 +41,28 @@ const Telas = {
     },
 
     update() {
-      //Atualiza a tela do jogo(sem isso o game não se move):
-      bird.update();
-        
-      
-      
+      if (pausado) return;
+
+      bat.update();
       cenario.chao.update();
       cenario.paisagem.update();
       cenario.torres.update();
-      
       score.update();
-      canos.update();
+      pilares.update();
     },
 
     click() {
-      bird.jump();
+      if (!pausado) {
+        bat.jump();
+      }
     },
 
     desenha() {
-      //A ordem importa! Itens de baixo da lista sobrepõem os de cima!
       cenario.paisagem.desenha();
-
-      
       cenario.torres.desenha();
-      canos.desenha(); 
+      pilares.desenha();
       cenario.chao.desenha();
-      
-      bird.desenha();
+      bat.desenha();
       score.desenhaAtual();
     },
   },
@@ -75,7 +70,6 @@ const Telas = {
   fim: {
     desenha() {
       setLocalStorage(highscore);
-
       newTelaGameOver().desenha();
     },
     update() {},
@@ -95,27 +89,64 @@ const trocaTela = (novaTela) => {
 };
 
 const loop = () => {
-  frames += 1;
-  //console.log(frames)
-
-  telaAtiva.update();
-  telaAtiva.desenha();
-  requestAnimationFrame(loop);
+  if (!pausado) {
+    frames += 1;
+    telaAtiva.update();
+    telaAtiva.desenha();
+  }
+  animFrame = requestAnimationFrame(loop);
 };
 
-window.addEventListener("click", () => {
-  telaAtiva.click();
+document.addEventListener("click", (event) => {
+  const canvas = document.getElementById("game-canvas");
+  const sidebar = document.querySelector(".s-sidebar__nav");
+
+  const rect = canvas.getBoundingClientRect();
+  const sidebarRect = sidebar.getBoundingClientRect();
+
+  const dentroDoCanvas =
+    event.clientX >= rect.left &&
+    event.clientX <= rect.right &&
+    event.clientY >= rect.top &&
+    event.clientY <= rect.bottom;
+
+  const dentroDaSidebar =
+    event.clientX >= sidebarRect.left &&
+    event.clientX <= sidebarRect.right &&
+    event.clientY >= sidebarRect.top &&
+    event.clientY <= sidebarRect.bottom;
+
+  if (dentroDoCanvas && !dentroDaSidebar) {
+    telaAtiva.click();
+    pausado = false;
+  } else {
+    pausado = true;
+  }
 });
 
-window.onkeypress = (event) => {
-  if (event.code == 'KeyW') {
+window.addEventListener("keydown", function (event) {
+  if (event.code === "KeyW") {
     telaAtiva.click();
-  } if (event.code == 'KeyM') {
-    if(bgMusic.paused) {bgMusic.play()}
-    else{bgMusic.pause()}
-  } 
-};
+  }
 
+  if (event.code === "KeyM") {
+    if (bgMusic.paused) {
+      bgMusic.play();
+    } else {
+      bgMusic.pause();
+    }
+  }
+
+  if (event.code === "KeyP") {
+    pausado = !pausado;
+
+    if (pausado) {
+      cancelAnimationFrame(animFrame); // Para o loop
+    } else {
+      loop(); // Continua o loop sem criar instâncias duplicadas
+    }
+  }
+});
 
 trocaTela(Telas.inicio);
 loop();

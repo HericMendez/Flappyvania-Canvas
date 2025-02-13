@@ -4,23 +4,26 @@ const getLocalStorage = () =>
     best: 0,
     tries: 0,
   };
-const setLocalStorage = (item) =>
-  localStorage.setItem("db_score", JSON.stringify(item));
 
-const canvas = document.querySelector("canvas");
-const context = canvas.getContext("2d");
+  let pausado = false;
 
-const clockTower = new Image();
-clockTower.src = "./assets/sprites/clock_tower.png";
+  const setLocalStorage = (item) =>
+    localStorage.setItem("db_score", JSON.stringify(item));
 
-const telas = new Image();
-telas.src = "./assets/sprites/telas_2.png";
+  const canvas = document.querySelector("canvas");
+  const context = canvas.getContext("2d");
 
-const alucardBat = new Image();
-alucardBat.src = "./assets/sprites/alucard.png";
+  const clockTower = new Image();
+  clockTower.src = "./assets/sprites/clock_tower.png";
 
-const pilares = new Image();
-pilares.src = "./assets/sprites/pilares.png";
+  const telas = new Image();
+  telas.src = "./assets/sprites/telas_2.png";
+
+  const alucardBat = new Image();
+  alucardBat.src = "./assets/sprites/alucard.png";
+
+  const pilaresImg = new Image();
+  pilaresImg.src = "./assets/sprites/pilares.png";
 
 var background = new Image();
 background.src = "./assets/sprites/background_original.png";

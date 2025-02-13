@@ -1,5 +1,5 @@
-function Bird() {
-  const bird = {
+function Bat() {
+  const bat = {
     //Posição da sprite no arquivo sprites.png:
     spriteX: 0,
     spriteY: 0,
@@ -16,7 +16,7 @@ function Bird() {
     jumpHeight: 3.7,
 
     update() {
-      if (colideComCenario(bird, Cenario().chao)) {
+      if (colideComCenario(bat, Cenario().chao)) {
         highscore.tries++;
         highscore.last = score.pontos;
         deathSound.play();
@@ -33,23 +33,21 @@ function Bird() {
     },
 
     jump() {
-
       this.speed = -this.jumpHeight;
     },
 
     animationFrames: [
-      { spriteX: 4,     spriteY: 0,    spriteWidth: 31,   spriteHeight: 10},       
-      { spriteX: 45,    spriteY: 0,    spriteWidth: 33,   spriteHeight: 11 },    
-      { spriteX: 86,    spriteY: 0,    spriteWidth: 38,   spriteHeight: 32 },     
-      { spriteX: 127,   spriteY: 0,    spriteWidth: 33,   spriteHeight: 43 },   
-      { spriteX: 168,   spriteY: 0,    spriteWidth: 27,   spriteHeight: 43 },   
-      { spriteX: 209,   spriteY: 0,    spriteWidth: 31,   spriteHeight: 43 },
-      { spriteX: 168,   spriteY: 0,    spriteWidth: 27,   spriteHeight: 45 },  
-      { spriteX: 127,   spriteY: 0,    spriteWidth: 33,   spriteHeight: 31 },  
-      { spriteX: 86,    spriteY: 0,    spriteWidth: 38,   spriteHeight: 33 }, 
-      { spriteX: 45,    spriteY: 0,    spriteWidth: 33,   spriteHeight: 53 },      
-      
-   ],
+      { spriteX: 4, spriteY: 0, spriteWidth: 31, spriteHeight: 10 },
+      { spriteX: 45, spriteY: 0, spriteWidth: 33, spriteHeight: 11 },
+      { spriteX: 86, spriteY: 0, spriteWidth: 38, spriteHeight: 32 },
+      { spriteX: 127, spriteY: 0, spriteWidth: 33, spriteHeight: 43 },
+      { spriteX: 168, spriteY: 0, spriteWidth: 27, spriteHeight: 43 },
+      { spriteX: 209, spriteY: 0, spriteWidth: 31, spriteHeight: 43 },
+      { spriteX: 168, spriteY: 0, spriteWidth: 27, spriteHeight: 45 },
+      { spriteX: 127, spriteY: 0, spriteWidth: 33, spriteHeight: 31 },
+      { spriteX: 86, spriteY: 0, spriteWidth: 38, spriteHeight: 33 },
+      { spriteX: 45, spriteY: 0, spriteWidth: 33, spriteHeight: 53 },
+    ],
 
     frameAtual: 0,
     //faz bater a asinha:
@@ -64,15 +62,12 @@ function Bird() {
       //      console.log(this.frameAtual)
     },
     desenha() {
-      bird.updateFrame();
-      
-      const { spriteX, spriteY, } = this.animationFrames[this.frameAtual];
+      bat.updateFrame();
 
-     //this.altura = this.animationFrames[this.frameAtual].spriteHeight;
-     //this.largura = this.animationFrames[this.frameAtual].spriteWidth;
-      
-      
+      const { spriteX, spriteY } = this.animationFrames[this.frameAtual];
 
+      //this.altura = this.animationFrames[this.frameAtual].spriteHeight;
+      //this.largura = this.animationFrames[this.frameAtual].spriteWidth;
 
       context.drawImage(
         //image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight >> Parâmetros da função DrawImage
@@ -92,11 +87,11 @@ function Bird() {
         //dX, dY: Coordenadas X,Y da  posição da sprite no Canvas
 
         this.largura,
-        this.altura,
+        this.altura
         //dWidth, dHeight: Proporção X,Y da sprite no Canvas. Utiliza os mesmos valores de "sWidth, sHeight" em uma escala 1:1
       );
     },
   };
 
-  return bird;
+  return bat;
 }
