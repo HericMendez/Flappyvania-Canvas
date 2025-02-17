@@ -100,7 +100,6 @@ const loop = () => {
 
 document.addEventListener("click", (event) => {
   const canvas = document.getElementById("game-canvas");
-  const sidebar = document.querySelector(".s-sidebar__nav");
 
   const rect = canvas.getBoundingClientRect();
 
@@ -113,11 +112,12 @@ document.addEventListener("click", (event) => {
   if (dentroDoCanvas) {
     telaAtiva.click();
     pausado = false;
+    bgMusic.play();
   } else {
     pausado = true;
+    bgMusic.pause();
   }
 });
-const pauseButton = document.getElementById("hamburger-menu");
 
 window.addEventListener("keydown", function (event) {
   if (event.code === "KeyW") {
@@ -136,13 +136,11 @@ window.addEventListener("keydown", function (event) {
     pausado = !pausado;
 
     if (pausado) {
-      cancelAnimationFrame(animFrame);
-      bgMusic.pause();
-      p;
-    } else {
-      loop();
+      cancelAnimationFrame(animFrame); // Para o loop
       bgMusic.play();
-      // Continua o loop sem criar instâncias duplicadas
+    } else {
+      loop(); // Continua o loop sem criar instâncias duplicadas
+      bgMusic.pause();
     }
   }
 });

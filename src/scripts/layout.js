@@ -18,20 +18,6 @@ if (window.innerWidth >= 660) {
   baseHeight = 300;
 }
 
-sidebarTrigger.addEventListener("click", (event) => {
-  let isMenuOpen = sidebarTrigger.checked;
-  pausado = isMenuOpen ? true : false;
-  console.log("pausado ==> ", pausado);
-  if (isMenuOpen) {
-    pausado = true;
-
-    console.log("Navbar está aberta");
-  } else {
-    console.log("Navbar está fechada");
-    pausado = false;
-  }
-});
-
 canvas.width = width;
 canvas.height = height;
 
