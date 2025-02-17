@@ -1,0 +1,240 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row;
+    align-items: center;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 30px;
+    color: #fff;
+  
+}
+
+@media  (max-width:600px) {
+        footer{
+            display: none;
+        }
+}
+
+footer .copyright {
+    text-align: center;
+}
+footer a {
+    color: #1bb76e;
+    text-decoration: none;
+    transition: 0.25s;
+}
+footer a:hover {
+    color: #f50;
+}
+.menuToggle {
+    display: block;
+    position: relative;
+    top: 50px;
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.menuToggle a {
+    text-decoration: none;
+    color: #232323;
+    transition: all 0.3s ease;
+}
+.menuToggle a:hover {
+    color: tomato;
+}
+.menuToggle input {
+
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    cursor: pointer;
+    opacity: 0;
+   /* hide this */
+    z-index: 2;
+   /* and place it over the hamburger */
+    -webkit-touch-callout: none;
+}
+.menuToggle span {
+    position: relative;
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background:  #fff;
+    border-radius:5px;
+    z-index: 1;
+    transform-origin: 4px 0px;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+}
+.menuToggle span:first-child {
+    transform-origin: 0% 0%;
+}
+.menuToggle span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+}
+.menuToggle input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: #232323;
+}
+.menuToggle input:checked ~ span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+.menuToggle input:checked ~ span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
+}
+.menuToggle input:checked ~ .menuItem {
+    transform: none;
+}
+
+
+.menuToggle hr{
+    border-top: 3px solid #222;
+    margin-top: 15px;
+    width: 100%;
+    
+
+}
+.menuToggle ul{
+    list-style-type: none;
+    padding: auto;
+}
+
+.menuItem {
+    
+    position: absolute;
+    width: 300px;
+    padding: 30px;
+    padding-top: 125px;
+    background: #ededed;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    transform-origin: 0% 0%;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+.menuItem li {
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+.menuItem li select {
+    margin: 0;
+    font-size: 12px;
+    padding: 5px;
+    color: #808080;
+    width: 100%;
+    font-family: "Press Start 2P", serif;
+
+}
+
+.menuItem .social-media {
+   display: flex;
+   flex-direction: row;
+   justify-content: st;
+
+   padding: 0;
+   font-size: 26px;
+
+}
+.menuItem .social-media i {
+
+    font-size: 30px;
+    margin-right: 36px;
+ 
+ }
+
+ .menuItem .social-media i:hover {
+    color: #808080; 
+ }
+
+
+
+.menuItem li select option {
+color: #808080;
+}
+
+.menuItem li button {
+    display: flex;
+    padding: 5px;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 10px;
+    border: 3px solid #222;
+    background-color: #ededed;
+  
+    font-family: "Press Start 2P", serif;
+}
+.menuItem li button i {
+
+    font-size: 16px;
+}
+.menuItem li button:hover {
+    background-color: #222;
+    color: #ededed;
+}
+
+
+
+.menu--left {
+    position: relative;
+    width: 50%;
+}
+.menu--left .menuToggle {
+    left: 0;
+}
+.menu--left .menuToggle input {
+    left: 50px;
+}
+.menu--left .menuToggle span {
+    left: 50px;
+}
+.menu--left .menuItem {
+    left: 50px;
+    margin: -100px 0 0 -50px;
+    transform: translate(-105%, 0);
+}
+
+
+
+@keyframes text-slide-in {
+    0% {
+        -webkit-transform: translateX(100px);
+        -moz-transform: translateX(100px);
+        -ms-transform: translateX(100px);
+        -o-transform: translateX(100px);
+        transform: translateX(100px);
+   }
+    100% {
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0);
+   }
+}
+.toggle-switch-container input {
+    opacity: 1 !important;
+    position: static !important;
+    width: 16px !important;
+    height: 16px !important;
+    padding-top: 10px;
+display: inline;
+
+}
+
+
+#pause-btn{
+    position: absolute;
+    top: 25vh;
+    left: 50%;
+    z-index: 2;
+}

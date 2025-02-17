@@ -1,5 +1,6 @@
 let frames = 0;
-let animFrame = null; // Armazena o ID da requestAnimationFrame
+let animFrame = null;
+let pausado = false;
 
 const Telas = {
   inicio: {
@@ -103,7 +104,6 @@ document.addEventListener("click", (event) => {
 
   const rect = canvas.getBoundingClientRect();
 
-
   const dentroDoCanvas =
     event.clientX >= rect.left &&
     event.clientX <= rect.right &&
@@ -117,6 +117,7 @@ document.addEventListener("click", (event) => {
     pausado = true;
   }
 });
+const pauseButton = document.getElementById("hamburger-menu");
 
 window.addEventListener("keydown", function (event) {
   if (event.code === "KeyW") {
@@ -135,9 +136,13 @@ window.addEventListener("keydown", function (event) {
     pausado = !pausado;
 
     if (pausado) {
-      cancelAnimationFrame(animFrame); // Para o loop
+      cancelAnimationFrame(animFrame);
+      bgMusic.pause();
+      p;
     } else {
-      loop(); // Continua o loop sem criar instâncias duplicadas
+      loop();
+      bgMusic.play();
+      // Continua o loop sem criar instâncias duplicadas
     }
   }
 });
