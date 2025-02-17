@@ -36,11 +36,7 @@ const Score = () => {
         canvas.width / 2,
         canvas.height - 160
       );
-      context.fillText(
-        `[M] Music On/Off`,
-        canvas.width / 2,
-        canvas.height - 130
-      );
+
     },
 
     update() {

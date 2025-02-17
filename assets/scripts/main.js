@@ -102,7 +102,7 @@ document.addEventListener("click", (event) => {
   const sidebar = document.querySelector(".s-sidebar__nav");
 
   const rect = canvas.getBoundingClientRect();
-  const sidebarRect = sidebar.getBoundingClientRect();
+
 
   const dentroDoCanvas =
     event.clientX >= rect.left &&
@@ -110,13 +110,7 @@ document.addEventListener("click", (event) => {
     event.clientY >= rect.top &&
     event.clientY <= rect.bottom;
 
-  const dentroDaSidebar =
-    event.clientX >= sidebarRect.left &&
-    event.clientX <= sidebarRect.right &&
-    event.clientY >= sidebarRect.top &&
-    event.clientY <= sidebarRect.bottom;
-
-  if (dentroDoCanvas && !dentroDaSidebar) {
+  if (dentroDoCanvas) {
     telaAtiva.click();
     pausado = false;
   } else {

@@ -38,7 +38,7 @@ function Pilares() {
     desenha() {
       pilares.pares.forEach((par) => {
         const randomY = par.y;
-        const pilarGap = 110;
+        const pilarGap = 150;
 
         const pilarHighX = par.x;
         const pilarHighY = randomY;
